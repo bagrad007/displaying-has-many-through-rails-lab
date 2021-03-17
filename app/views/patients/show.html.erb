@@ -1,0 +1,8 @@
+<h3><%= @patient.name %></h3>
+<%= @patient.appointments.each do |app| %>
+
+    <%= link_to app.doctor.name, app.doctor %>
+    <% @date = app.appointment_datetime.to_s(:long).split;
+       @time = @date.pop %>
+       <%= "#{@date.join(" ")} at #{@time}" %>
+<% end %>
